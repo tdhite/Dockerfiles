@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=LiteIDE
+Comment=
+Exec=/usr/local/liteide/bin/liteide
+Categories=Development;
+NoDisplay=false
+MimeType=application/x-java-archive
+Terminal=false
+Icon=/usr/local/liteide/share/welcome/images/liteide-logo64.png"

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+cd $(dirname $0)
+
+SOURCE=${HOME}/workspace/go
+CONTAINER={{ user }}
+IMAGE=godev/${CONTAINER}
+
+# Create a shared folder which will be used as working directory.
+test -d $SOURCE || mkdir $SOURCE
+
+# Try to start an existing/stopped container with the given name $CONTAINER. Otherwise, run a new one.
+cmd="/bin/bash"
+if [ -n "${1}" ]; then
+	cmd="$*"
+fi
+docker start -i godev.${CONTAINER} 2>/dev/null || docker run -p 5901:5900 -v $SOURCE:/home/{{ user }}/go -i -t --name godev.${CONTAINER} $IMAGE sh -c "${cmd}"
+
+exit $?

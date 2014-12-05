@@ -1,0 +1,6 @@
+run.sh
+Dockerfile
+.aws/
+.ssh/
+.netrc
+.vnc/
