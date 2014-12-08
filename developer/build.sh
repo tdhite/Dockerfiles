@@ -17,7 +17,7 @@ if [ -z "${1}" ]; then
 fi
 
 # generate the dockerfile
-python generate.py "$1" Dockerfile.j2 >Dockerfile
+python generate.py Dockerfile.j2 "$1" >Dockerfile
 if [ $? -ne 0 ]; then
     echo "Error generating Dockerfile, aborting!"
     exit 1
